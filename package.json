@@ -1,0 +1,35 @@
+{
+	"name": "searxng-mcp",
+	"version": "1.0.0",
+	"description": "Turn your SearXNG instance into a powerful search engine for AI using MCP.",
+	"main": "dist/main.js",
+	"type": "module",
+	"license": "GPL-2.0-only",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/9Ninety/SearXNG-MCP.git"
+	},
+	"bin": {
+		"searxng-mcp": "dist/main.js"
+	},
+	"scripts": {
+		"build": "shx rm -rf dist && tsc",
+		"prepublishOnly": "bun run build"
+	},
+	"files": [
+		"./dist",
+		"./bun.lockb"
+	],
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "1.10.2",
+		"zod": "^3.24.3",
+		"zod-to-json-schema": "^3.24.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.0.0-beta.2",
+		"@types/bun": "^1.2.11",
+		"bun": "^1.2.11",
+		"shx": "^0.4.0",
+		"typescript": "^5.8.3"
+	}
+}
