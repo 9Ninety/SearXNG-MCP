@@ -8,6 +8,8 @@ async function main() {
 
 	await server.connect(transport);
 
+	console.log("SearXNG MCP server is running on stdio...");
+
 	process.on("SIGINT", async () => {
 		console.log("Shutting down SearXNG MCP server...");
 		await server.close();
