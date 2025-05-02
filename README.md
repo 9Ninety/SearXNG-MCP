@@ -101,7 +101,7 @@ Add this snippet to `claude_desktop_config.json`:
       "args": [
         "-y",
         "searxng-mcp"
-      ]
+      ],
       "env": {
         "SEARXNG_SERVER_URL": "https://my-searxng.example.com"
       }

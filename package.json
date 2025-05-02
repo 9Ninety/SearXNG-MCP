@@ -1,6 +1,6 @@
 {
 	"name": "searxng-mcp",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Turn your SearXNG instance into a powerful search engine for AI using MCP.",
 	"main": "dist/main.js",
 	"type": "module",
