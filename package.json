@@ -1,6 +1,6 @@
 {
 	"name": "searxng-mcp",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "Turn your SearXNG instance into a powerful search engine for AI using MCP.",
 	"main": "dist/main.js",
 	"type": "module",
@@ -13,23 +13,27 @@
 		"searxng-mcp": "dist/main.js"
 	},
 	"scripts": {
+		"typecheck": "tsc --noEmit",
 		"build": "shx rm -rf dist && tsc",
-		"prepublishOnly": "bun run build"
+		"prepublishOnly": "bun run build",
+		"inspector": "mcp-inspector --config mcp.inspector.json",
+		"inspector:cli": "mcp-inspector --cli --config mcp.inspector.json --server default-server"
 	},
 	"files": [
 		"./dist",
 		"./bun.lockb"
 	],
 	"dependencies": {
-		"@modelcontextprotocol/sdk": "1.10.2",
-		"zod": "^3.24.3",
-		"zod-to-json-schema": "^3.24.5"
+		"@modelcontextprotocol/sdk": "^1.29.0",
+		"node-html-parser": "^9.0.0",
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.0.0-beta.2",
-		"@types/bun": "^1.2.11",
-		"bun": "^1.2.11",
+		"@biomejs/biome": "^2.5.4",
+		"@modelcontextprotocol/inspector": "^1.0.0",
+		"@types/bun": "^1.3.14",
+		"bun": "^1.3.14",
 		"shx": "^0.4.0",
-		"typescript": "^5.8.3"
+		"typescript": "^7.0.2"
 	}
 }

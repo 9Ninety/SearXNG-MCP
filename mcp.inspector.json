@@ -1,0 +1,13 @@
+{
+	"mcpServers": {
+		"default-server": {
+			"command": "bun",
+			"args": ["src/main.ts"],
+			"env": {
+				"SEARXNG_SERVER_URL": "https://your-searxng.example.com",
+				"SEARXNG_MODE": "json",
+				"SEARXNG_METHOD": "get"
+			}
+		}
+	}
+}

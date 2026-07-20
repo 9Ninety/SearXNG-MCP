@@ -8,10 +8,11 @@ async function main() {
 
 	await server.connect(transport);
 
-	console.log("SearXNG MCP server is running on stdio...");
+	// MCP stdio: keep stdout reserved for JSON-RPC only.
+	console.error("SearXNG MCP server is running on stdio...");
 
 	process.on("SIGINT", async () => {
-		console.log("Shutting down SearXNG MCP server...");
+		console.error("Shutting down SearXNG MCP server...");
 		await server.close();
 		process.exit(0);
 	});

@@ -1,16 +1,16 @@
-FROM node:22-alpine AS builder
+FROM oven/bun:1-alpine AS builder
 WORKDIR /tmp/build
 
-COPY package.json tsconfig.json ./
+COPY package.json bun.lockb tsconfig.json ./
 COPY src ./src
-RUN npm i
-RUN npm run build
+RUN bun install --frozen-lockfile
+RUN bun run build
 
-FROM node:22-alpine AS runner
+FROM oven/bun:1-alpine AS runner
 WORKDIR /app
 
-COPY --from=builder /tmp/build/package.json ./
+COPY --from=builder /tmp/build/package.json bun.lockb ./
 COPY --from=builder /tmp/build/dist ./dist
-RUN npm i --omit=dev
+RUN bun install --frozen-lockfile --production
 
-ENTRYPOINT ["node", "/app/dist/main.js"]
+ENTRYPOINT ["bun", "/app/dist/main.js"]
